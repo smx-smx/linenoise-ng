@@ -50,9 +50,9 @@ elseif(MSVC)
            CMAKE_CXX_FLAGS_MINSIZEREL
            CMAKE_CXX_FLAGS_RELWITHDEBINFO)
     if (flag_var MATCHES "DEBUG")
-      set(${flag_var} "${${flag_var}} /MTd")
+      set(${flag_var} "${${flag_var}} /MDd")
     else ()
-      set(${flag_var} "${${flag_var}} /MT")
+      set(${flag_var} "${${flag_var}} /MD")
     endif ()
   endforeach()
   # https://msdn.microsoft.com/en-us/library/aa267384%28VS.60%29.aspx
@@ -77,6 +77,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src)
 # build liblinenoise
 add_library(
   linenoise
+  STATIC
   src/ConvertUTF.cpp
   src/linenoise.cpp
   src/wcwidth.cpp
