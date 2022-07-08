@@ -77,7 +77,6 @@ include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src)
 # build liblinenoise
 add_library(
   linenoise
-  STATIC
   src/ConvertUTF.cpp
   src/linenoise.cpp
   src/wcwidth.cpp
